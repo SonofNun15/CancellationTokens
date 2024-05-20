@@ -20,7 +20,9 @@ const int repetitions = 20;
 
 app.MapGet("/long-request", async (CancellationToken token) =>
 	{
-		token.ThrowIfCancellationRequested();
+		// This is not really needed in a web request as it appears to
+		// be the default behavior, but could be used in other situations:
+		// token.ThrowIfCancellationRequested();
 		
 		try
 		{
